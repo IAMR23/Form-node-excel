@@ -1,29 +1,17 @@
-const express = require("express");
-const fs = require("fs");
-const XLSX = require("xlsx");
-const cors = require("cors");
+import express, { json } from "express";
+import cors from "cors";
 
 const app = express();
 
 const PORT = process.env.PORT || 3000;
-app.use(express.json());
+app.use(json());
 app.use(
   cors({
     origin: "*", // Permite solicitudes desde cualquier origen (útil para pruebas)
-    methods: ["GET", "POST", "PUT", "DELETE"], // Métodos permitidos
+    methods: ["GET", "POST"], // Métodos permitidos
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
-
-const archivoExcel = "datos.xlsx";
-
-// Función para leer el archivo Excel
-const leerExcel = () => {
-  if (!fs.existsSync(archivoExcel)) return [];
-  const workbook = XLSX.readFile(archivoExcel);
-  const hoja = workbook.Sheets[workbook.SheetNames[0]];
-  return XLSX.utils.sheet_to_json(hoja);
-};
 
 // Ruta para guardar datos
 app.post("/guardar", (req, res) => {

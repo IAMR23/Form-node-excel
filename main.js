@@ -43,7 +43,7 @@ app.post("/guardar", async (req, res) => {
   try {
     const { nombres, apellidos, asistencia, alergia } = req.body;
 
-    const nuevoDato = new Dato({ nombre, edad });
+    const nuevoDato = new Dato({ nombres, apellidos, asistencia, alergia });
     await nuevoDato.save(); // Guardar en la base de datos
 
     res.json({ mensaje: "Datos guardados correctamente.", dato: nuevoDato });

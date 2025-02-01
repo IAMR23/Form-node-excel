@@ -25,6 +25,10 @@ app.post("/guardar", (req, res) => {
   res.json({ mensaje: "Datos guardados correctamente." });
 });
 
+app.get("/", (req, res) => {
+  res.json({ message: "Ready in Nodejs" });
+});
+
 app.listen(PORT || 3000, () => {
   console.log(`Server Ready in the PORT: ${PORT}`);
 });

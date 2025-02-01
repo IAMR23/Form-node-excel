@@ -39,5 +39,5 @@ app.post("/guardar", (req, res) => {
 });
 
 app.listen(PORT || 3000, () => {
-  console.log(`Server Ready in the PORT: ${PORT}}`);
+  console.log(`Server Ready in the PORT: ${PORT}`);
 });

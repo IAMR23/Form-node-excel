@@ -4,6 +4,8 @@ const XLSX = require("xlsx");
 const cors = require("cors");
 
 const app = express();
+
+const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(cors());
 
@@ -37,5 +39,5 @@ app.post("/guardar", (req, res) => {
 });
 
 app.listen(PORT || 3000, () => {
-  console.log(`Ready ${PORT}}`);
+  console.log(`Server Ready in the PORT: ${PORT}}`);
 });

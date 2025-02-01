@@ -36,4 +36,6 @@ app.post("/guardar", (req, res) => {
   res.json({ mensaje: "Datos guardados correctamente." });
 });
 
-app.listen(3000, () => console.log("Servidor en http://localhost:3000"));
+app.listen(PORT || 3000, () => {
+  console.log(`Ready ${PORT}}`);
+});

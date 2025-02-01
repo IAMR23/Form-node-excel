@@ -27,20 +27,7 @@ const leerExcel = () => {
 
 // Ruta para guardar datos
 app.post("/guardar", (req, res) => {
-  let datos = leerExcel();
-
-  // Verifica si el correo ya existe
-  if (datos.some((d) => d.email === req.body.email)) {
-    return res.json({ mensaje: "Error: Ya enviaste el formulario." });
-  }
-
-  // Agrega los nuevos datos y guarda el Excel
-  datos.push(req.body);
-  const nuevoLibro = XLSX.utils.book_new();
-  const nuevaHoja = XLSX.utils.json_to_sheet(datos);
-  XLSX.utils.book_append_sheet(nuevoLibro, nuevaHoja, "Formulario");
-  XLSX.writeFile(nuevoLibro, archivoExcel);
-
+  console.log("CP1");
   res.json({ mensaje: "Datos guardados correctamente." });
 });
 

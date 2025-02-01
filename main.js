@@ -17,9 +17,9 @@ app.use(
 
 // Conexión a MongoDB
 const MONGODB_URI =
-  process.env.MONGODB_URI || "mongodb://localhost:27017/invitation"; // Cambia esto por tu cadena de conexión
+  process.env.MONGODB_URL || "mongodb://localhost:27017/invitation"; // Cambia esto por tu cadena de conexión
 mongoose
-  .connect(MONGODB_URI)
+  .connect(MONGODB_URL)
   .then(() => {
     console.log("Conectado a MongoDB");
   })

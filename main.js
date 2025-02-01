@@ -16,10 +16,10 @@ app.use(
 );
 
 // Conexión a MongoDB
-const MONGODB_URL =
-  process.env.MONGODB_URL || "mongodb://localhost:27017/invitation"; // Cambia esto por tu cadena de conexión
+const MONGO_URL =
+  process.env.MONGO_URL || "mongodb://localhost:27017/invitation"; // Cambia esto por tu cadena de conexión
 mongoose
-  .connect(MONGODB_URL)
+  .connect(MONGO_URL)
   .then(() => {
     console.log("Conectado a MongoDB");
   })

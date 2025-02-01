@@ -29,8 +29,10 @@ mongoose
 
 // Definir un esquema y modelo para los datos
 const datoSchema = new mongoose.Schema({
-  nombre: String,
-  edad: Number,
+  nombres: String,
+  apellidos: String,
+  asistencia: String,
+  alergia: String,
   fecha: { type: Date, default: Date.now }, // Campo adicional para la fecha de creación
 });
 
@@ -39,14 +41,8 @@ const Dato = mongoose.model("Dato", datoSchema);
 // Ruta para guardar datos
 app.post("/guardar", async (req, res) => {
   try {
-    const { nombre, edad } = req.body;
+    const { nombres, apellidos, asistencia, alergia } = req.body;
 
-    // Validar que se reciban los datos necesarios
-    if (!nombre || !edad) {
-      return res.status(400).json({ error: "Nombre y edad son obligatorios" });
-    }
-
-    // Crear un nuevo documento en la colección "Dato"
     const nuevoDato = new Dato({ nombre, edad });
     await nuevoDato.save(); // Guardar en la base de datos
 

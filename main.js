@@ -7,13 +7,7 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 app.use(express.json());
-app.use(
-  cors({
-    origin: "http://127.0.0.1:5500", // Permitir solo este origen
-    methods: ["GET", "POST"], // Métodos permitidos
-    allowedHeaders: ["Content-Type"],
-  })
-);
+app.use(cors());
 
 const archivoExcel = "datos.xlsx";
 
